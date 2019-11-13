@@ -1,0 +1,160 @@
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #000000;
+  padding: 4px 3px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable thead {
+  background: #3498DB;
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+/*Forecast table*/
+table.forecastTable {
+  border: 1px solid #1C6EA4;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.forecastTable td, table.forecastTable th {
+  border: 1px solid #AAAAAA;
+  padding: 4px 3px;
+}
+table.forecastTable tbody td {
+  font-size: 13px;
+}
+table.forecastTable thead {
+  background: #A40000;
+  
+  border-bottom: 2px solid #444444;
+}
+table.forecastTable thead th {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.forecastTable thead th:first-child {
+  border-left: none;
+}
+
+table.forecastTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.forecastTable tfoot td {
+  font-size: 14px;
+}
+table.forecastTable tfoot .links {
+  text-align: right;
+}
+table.forecastTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+
+/*Monthly summary table*/
+table.summaryTable {
+  border: 1px solid #1C6EA4;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.summaryTable td, table.summaryTable th {
+  border: 1px solid #AAAAAA;
+  padding: 4px 3px;
+}
+table.summaryTable tbody td {
+  font-size: 13px;
+}
+table.summaryTable thead {
+  background: #066396;
+
+  border-bottom: 2px solid #444444;
+}
+table.summaryTable thead th {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.summaryTable thead th:first-child {
+  border-left: none;
+}
+
+table.summaryTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.summaryTable tfoot td {
+  font-size: 14px;
+}
+table.summaryTable tfoot .links {
+  text-align: right;
+}
+table.summaryTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}

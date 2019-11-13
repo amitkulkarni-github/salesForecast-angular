@@ -1,0 +1,368 @@
+<div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info" style="padding: 5px;">
+                <button mat-icon-button style="padding: 5px;">
+                    <mat-icon (click)="sidenav.toggle()" matTooltip="Input Parameters">input</mat-icon>
+                </button>
+                <strong style="padding: 5px;">Current Selection:</strong>
+                <u>History Start</u> :
+                YEAR : {{selectedHistoryYear?.year}}
+                <b>&nbsp;|&nbsp;</b>
+                WEEK : {{selectedHistoryWeek?.number}} - {{selectedHistoryWeek?.startDate | date:'shortDate'}}
+                <b>&nbsp;|&nbsp;</b>
+                NO. OF WEEKS : {{historyWeekCount}}
+                <b>&nbsp;**&nbsp;</b>
+                <u>Forecast Start</u> :
+                YEAR : {{selectedForecastYear?.year}}
+                <b>&nbsp;|&nbsp;</b>
+                WEEK : {{selectedForecastWeek?.number}} - {{selectedForecastWeek?.startDate | date:'shortDate'}}
+                <b>&nbsp;|&nbsp;</b>
+                NO. OF WEEKS : {{forecastWeekCount}}
+                <b>&nbsp;**&nbsp;</b>
+                <u>CHANNEL</u> : {{selectedChannel?.name}}
+                <b>&nbsp;|&nbsp;</b>
+                <u>PRODUCT</u> : {{selectedProduct?.brand}} - {{selectedProduct?.name}}
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-sidenav-container>
+                <mat-sidenav #sidenav mode="side" opened="true">
+                    <div class="row">
+                        <div class="col">
+                                <table class="table table-sm table-bordered">
+                                        <tr>
+                                            <td colspan="2">
+                                                <mat-icon (click)="sidenav.toggle()" matTooltip="Hide this panel" style="float: right;">
+                                                    close
+                                                </mat-icon>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="text-align: center;">
+                                                <h5 class="display-5">Inputs</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <h5><b><u>History</u>&nbsp;:</b></h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">Start Year</label>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" [(ngModel)]="selectedHistoryYear" id="historyYearSelect"
+                                                    >
+                                                    <option *ngFor="let year of historyYears" [ngValue]="year">
+                                                        {{year?.year}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">Start Week</label>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" [(ngModel)]="selectedHistoryWeek" id="historyWeekSelect">
+                                                    <option *ngFor="let week of selectedHistoryYear?.weeks" [ngValue]="week">
+                                                        Week {{week?.number}} - {{week?.startDate | date:'shortDate'}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>Cut-off Date</td>
+                                            <td>
+                                                {{staticDetails?.historyCutOffDate| date:'shortDate'}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">No. of weeks</label>
+                                            </td>
+                                            <td>
+                                                <input [(ngModel)]="historyWeekCount" type="number" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <h5><b><u>Forecast</u>&nbsp;:</b></h5>
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">Start Year</label>
+                                            </td>
+                                            <td>
+                                                <select [(ngModel)]="selectedForecastYear" class="form-control" id="forecastYearSelect"
+                                                    >
+                                                    <option *ngFor="let year of forecastYears" [ngValue]="year">
+                                                        {{year?.year}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">Start Week</label>
+                                            </td>
+                                            <td>
+                                                <select [(ngModel)]="selectedForecastWeek" class="form-control" id="forecastWeekSelect">
+                                                    <option *ngFor="let week of selectedForecastYear?.weeks" [ngValue]="week">
+                                                        Week {{week?.number}} - {{week?.startDate | date:'shortDate'}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="col-form-label">No. of weeks</label>
+                                            </td>
+                                            <td>
+                                                <input [(ngModel)]="forecastWeekCount" type="number" class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Channel</td>
+                                            <td>
+                                                <select [(ngModel)]="selectedChannel" class="form-control" id="channelSelect"
+                                                (ngModelChange)="onChange($event)">
+                                                    <option *ngFor="let channel of staticDetails?.channels" [ngValue]="channel">
+                                                        {{channel?.channel}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product</td>
+                                            <td>
+                                                <div>
+                                                    <select [(ngModel)]="selectedProduct" class="form-control" id="productSelect">
+                                                        <option *ngFor="let product of products" [ngValue]="product">
+                                                            {{product?.brand}} - {{product?.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>Forecast Method</td>
+                                                <td>
+                                                    <div>
+                                                        <select [(ngModel)]="selectedForecastMethod" class="form-control" id="forecastMethodSelect">
+                                                            <option *ngFor="let method of staticDetails?.forecastMethods" [ngValue]="method">
+                                                                {{method?.name}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    </table>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button (click)="showHistory()" type="button"
+                                    class="btn btn-primary btn-lg btn-block">Forecast</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button (click)="resetFormData()" type="button"
+                                    class="btn btn-danger btn-lg btn-block">Reset</button>
+                        </div>
+                    </div>
+                </mat-sidenav>
+                <mat-sidenav-content layout-padding>
+                    <div style="height: 88vh;">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col" style="overflow-x: auto;">
+                                        <table id="tblHistory" class="table table-bordered table-sm"
+                                            *ngIf="showHistorySection">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView"
+                                                        style="text-align: center;">
+                                                        <h3 class="display-5">History</h3>
+                                                    </th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView"
+                                                        style="text-align: center;">
+                                                        <h3 class="display-5">Forecast</h3>
+                                                    </th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView"
+                                                        style="text-align: center;">
+                                                        <h3 class="display-5">Forecast-Summary</h3>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView">
+                                                        <div *ngIf="showHistorySection" class="float-right">
+                                                            <mat-paginator [length]="historyByWeeks.length"
+                                                                [pageSize]="staticDetails.defaultItemsToView"
+                                                                (page)="pageEvent = historyPaginatorEvent($event)"
+                                                                [showFirstLastButtons]="true">
+                                                            </mat-paginator>
+                                                        </div>
+                                                    </th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView">
+                                                        <div *ngIf="showHistorySection" class="float-right">
+                                                            <mat-paginator [length]="totalForecastWeekCount"
+                                                                [pageSize]="staticDetails.defaultItemsToView"
+                                                                (page)="pageEvent = forecastPaginatorEvent($event)"
+                                                                [showFirstLastButtons]="true">
+                                                            </mat-paginator>
+                                                        </div>
+                                                    </th>
+                                                    <th [attr.colspan]="staticDetails.defaultItemsToView">
+                                                        <div *ngIf="showHistorySection" class="float-right">
+                                                            <mat-paginator [length]="totalForecastMonthCount"
+                                                                [pageSize]="staticDetails.defaultItemsToView"
+                                                                (page)="pageEvent = summaryPaginatorEvent($event)"
+                                                                [showFirstLastButtons]="true">
+                                                            </mat-paginator>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th *ngFor="let week of displayHistoryWeeks; let j=index;">
+                                                        <table class="blueTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th [attr.colspan]="7">
+                                                                        Week {{week.number}} ({{week.serialNumber}})
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th [attr.colspan]="7">
+                                                                        {{week.startDate}}
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                        <th *ngFor="let date of week.dates">{{date}}</th>
+                                                                    </tr>
+                                                                <tr>
+                                                                    <th *ngFor="let day of week.days">{{day}}</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </th>
+                                                    <th *ngFor="let header of displayForecastHeaders; let j=index;">
+                                                        <table class="forecastTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th [attr.colspan]="header.dates.length">
+                                                                        Week {{header.weekNumber}} ({{header.weekSerialNumber}})
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th [attr.colspan]="header.dates.length">
+                                                                        {{header.startDate}}
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th  *ngFor="let date of header.dates;let k=index;">
+                                                                        {{date}}
+                                                                    </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th *ngFor="let day of header.days;let l=index;">
+                                                                        {{day}}
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </th>
+                                                    <th *ngFor="let header of displayForecastSummaryHeaders; let j=index;">
+                                                            <table class="summaryTable">
+                                                                <thead>
+                                                                    
+                                                                    <tr>
+                                                                        <th>
+                                                                            {{header.monthName}}
+                                                                        </th>
+                                                                    </tr>
+                                                                    <tr >
+                                                                        <th>
+                                                                            {{header.year}}
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+                                                        </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>Total Hero Net Unit</th>
+                                                    <td *ngFor="let week of displayHistoryWeeks; let j=index;">
+                                                        {{week.units | number : '1.0-0'}}
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr *ngFor="let item of masterDisplayData; let j=index;">
+                                                    <th>{{item.methodName}}</th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <th *ngFor="let unit of item.units;let k=index;">{{unit| number : '1.0-0'}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <td colspan="4">
+                                                            <div class="chart-wrapper">
+                                                                    <canvas baseChart 
+                                                                    [datasets]="historyLineChartData" 
+                                                                    [labels]="historyLineChartLabels" 
+                                                                    [options]="lineChartOptions"
+                                                                    [colors]="lineChartColors" 
+                                                                    [legend]="lineChartLegend" 
+                                                                    [chartType]="lineChartType" 
+                                                                    [plugins]="lineChartPlugins">
+                                                                </canvas>
+                                                            </div> 
+                                                    </td>
+                                                    <td colspan="4">
+                                                            <div class="chart-wrapper">
+                                                                    <canvas baseChart 
+                                                                    [datasets]="forecastLineChartData" 
+                                                                    [labels]="forecastLineChartLabels" 
+                                                                    [options]="lineChartOptions"
+                                                                    [colors]="lineChartColors" 
+                                                                    [legend]="lineChartLegend" 
+                                                                    [chartType]="lineChartType" 
+                                                                    [plugins]="lineChartPlugins">
+                                                                </canvas>
+                                                            </div> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        
+                    </div>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+        </div>
+    </div>
+</div>

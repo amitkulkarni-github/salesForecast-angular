@@ -1,0 +1,18 @@
+[
+    {
+        "id": "5dc75e0ac0bd39e99bf3d69b",
+        "name": "Differnced-first-order"
+    },
+    {
+        "id": "5dc75e0ac0bd39e99bf3d699",
+        "name": "SES"
+    },
+    {
+        "id": "5dc75e0ac0bd39e99bf3d69f",
+        "name": "first-order"
+    },
+    {
+        "id": "5dc75e0ac0bd39e99bf3d69d",
+        "name": "Damped-trend-linear-exponential-smoothing"
+    }
+]

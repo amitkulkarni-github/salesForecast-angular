@@ -1,0 +1,67 @@
+
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col">
+            <h3>About this application</h3>
+            <p>
+                This application can be used for forecasting the sales in the upcoming years.
+                User can provide certain inputs and the application forecasts the sales using the ARIMA model.
+            </p>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            History Start Year-Week and No. of Weeks
+                        </td>
+                        <td>
+                            This gives the range of the history data to be considered for the forecasting of sales
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            History Cut Off Date
+                        </td>
+                        <td>
+                            This is an informational field to tell the user about the day till history is available in
+                            the system
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Forecast Start Year-Week and No. of Weeks
+                        </td>
+                        <td>
+                            This gives the range of the forecast data to be requested from the system
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Channel
+                        </td>
+                        <td>
+                            The channels through which products are sold (such as online, in-store etc.)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td>The product(s) for which the forecast is requested</td>
+                    </tr>
+                    <tr>
+                        <td>Forecast Method</td>
+                        <td>Different forecasting algorithms that fall under the ARIMA model. This field is optional
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>

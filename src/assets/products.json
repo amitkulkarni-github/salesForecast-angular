@@ -1,0 +1,20 @@
+[
+    {
+        "id": "5dc75bcfc0bd39e99bf3d68f",
+        "name": "iPad Pro",
+        "brand": "Apple",
+        "type": "Tablet"
+    },
+    {
+        "id": "5dc75bcfc0bd39e99bf3d690",
+        "name": "Macbook Air",
+        "brand": "Apple",
+        "type": "Laptop"
+    },
+    {
+        "id": "5dc75bcfc0bd39e99bf3d68e",
+        "name": "iPhone XR",
+        "brand": "Apple",
+        "type": "Phone"
+    }
+]
